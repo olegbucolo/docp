@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/departments")
-public class DepartmentsRestController {
+public class DepartmentRestController {
     
-    private final DepartmentRepository departmentRepo;
+    private final DepartmentRepository departmentService;
 
-
-    public DepartmentsRestController(DepartmentRepository departmentRepo){
-        this.departmentRepo = departmentRepo;
+    public DepartmentRestController(DepartmentRepository departmentService){
+        this.departmentService = departmentService;
     }
 
     @GetMapping
     public List<Department> index(){
-        return departmentRepo.findAll();
+        return departmentService.findAll();
     }
 }
